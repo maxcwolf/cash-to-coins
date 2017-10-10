@@ -3,40 +3,34 @@
 const dollarAmount = 8.68
 const piggyBank = {}
 
-// piggyBank.key = quarters
 
 //defining the amount of quarters / inserting the quarters property and value into the piggyBank object
 
-let remainingAmount = dollarAmount;
+// let remainingAmount = dollarAmount;
 
-console.log(piggyBank);
+// console.log(piggyBank);
 
-let quarters = Math.floor(dollarAmount/.25);
-piggyBank.quarters = quarters;
-remainingAmount = (remainingAmount - (quarters * .25)).toFixed(2);
+let convertCash = function(remainingAmount) {
+    let quarters = Math.floor(remainingAmount/.25);
+    piggyBank.quarters = quarters;
+    remainingAmount = (remainingAmount - (quarters * .25)).toFixed(2);
+    
+    let dimes = Math.floor(remainingAmount/.10);
+    piggyBank.dimes = dimes;
+    remainingAmount = (remainingAmount - (dimes * .10)).toFixed(2);
+    
+    let nickels = Math.floor(remainingAmount/.05);
+    piggyBank.nickels = nickels;
+    remainingAmount = (remainingAmount -(nickels * .05)).toFixed(2);
+    
+    let pennies = Math.floor(remainingAmount/.01);
+    piggyBank.pennies = pennies;
+    remainingAmount -= pennies * .01;
+    
+    console.log(piggyBank);
+}
 
-console.log(remainingAmount)
-
-let dimes = Math.floor(remainingAmount/.10);
-piggyBank.dimes = dimes;
-remainingAmount = (remainingAmount - (dimes * .10)).toFixed(2);
-
-console.log(remainingAmount)
-
-let nickels = Math.floor(remainingAmount/.05);
-piggyBank.nickels = nickels;
-remainingAmount = (remainingAmount -(nickels * .05)).toFixed(2);
-
-console.log(remainingAmount)
-
-let pennies = Math.floor(remainingAmount/.01);
-piggyBank.pennies = pennies;
-remainingAmount -= pennies * .01;
-
-console.log(remainingAmount)
-
-console.log(piggyBank);
-
+convertCash(8.68)
 
 
 // I TRIED CHANGING EVERYTHING TO WHOLE NUMBERS
