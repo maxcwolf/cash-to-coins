@@ -1,36 +1,41 @@
 //dollarAmount is getting incorrectly rounded to 4.09 when defined as 4.10.... the code works fine with other tested floats though
 
-const dollarAmount = 4.1
+const dollarAmount = 8.68
 const piggyBank = {}
 
 // piggyBank.key = quarters
 
 //defining the amount of quarters / inserting the quarters property and value into the piggyBank object
 
+let remainingAmount = dollarAmount;
+
+console.log(piggyBank);
+
 let quarters = Math.floor(dollarAmount/.25);
 piggyBank.quarters = quarters;
-let remainingAmount = dollarAmount - (quarters * .25);
-// dollarAmount -= quarters * .25; // this is to subtract the amount of quarters from the total dollarAmount left for following calculations, but it doesnt work with the const variable!...
+remainingAmount = (remainingAmount - (quarters * .25)).toFixed(2);
+
+console.log(remainingAmount)
 
 let dimes = Math.floor(remainingAmount/.10);
 piggyBank.dimes = dimes;
-remainingAmount -= dimes * .10;
+remainingAmount = (remainingAmount - (dimes * .10)).toFixed(2);
+
+console.log(remainingAmount)
 
 let nickels = Math.floor(remainingAmount/.05);
 piggyBank.nickels = nickels;
-remainingAmount -= nickels * .05;
+remainingAmount = (remainingAmount -(nickels * .05)).toFixed(2);
+
+console.log(remainingAmount)
 
 let pennies = Math.floor(remainingAmount/.01);
 piggyBank.pennies = pennies;
 remainingAmount -= pennies * .01;
+
+console.log(remainingAmount)
+
 console.log(piggyBank);
-
-
-// let coinAmount = 0
-// for ( i = 0; coinAmount <= dollarAmount; i++ )  {
-//     let coinAmount = dollarAmount % .25;
-//     piggyBank.push("quarters": coinAmount)
-// }
 
 
 
